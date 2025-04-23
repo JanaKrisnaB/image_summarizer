@@ -1,4 +1,9 @@
 from transformers import pipeline
+
+@st.cache_resource
+def load_summarizer():
+    return pipeline("summarization", model="facebook/bart-large-cnn")
+    
 # Initialize the summarizer
 summarizer_pipeline = pipeline("summarization", model="facebook/bart-large-cnn")
 
