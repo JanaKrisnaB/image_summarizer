@@ -1,11 +1,10 @@
 from transformers import pipeline
-
 # Initialize the summarizer
 summarizer_pipeline = pipeline("summarization", model="facebook/bart-large-cnn")
 
 def summarize_text(text, count, max_length=None, min_length=None):
     '''Summarizes input text based on word count or custom length parameters.'''
-    
+
     # Validate input text
     if not text.strip():
         return "Error: Input text is empty."
@@ -20,13 +19,10 @@ def summarize_text(text, count, max_length=None, min_length=None):
         min_length = count // 4
 
     # Ensure max_length is greater than min_length
-    if max_length < min_length:
-        max_length = min_length + 50  # Ensuring a reasonable difference
+    max_length = max(max_length, min_length + 50)
 
     # Perform summarization
-    try:
-        summary = summarizer_pipeline(text, max_length=max_length, min_length=min_length, do_sample=False)[0]["summary_text"]
-    except Exception as e:
-        return f"Error during summarization: {str(e)}"
+    summary = summarizer_pipeline(text, max_length=max_length, min_length=min_length, do_sample=False)[0]["summary_text"]
     
     return summary
+
