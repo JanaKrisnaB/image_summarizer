@@ -3,4 +3,4 @@ transformers
 easyocr
 pillow
 matplotlib
-opencv-python
+opencv-python-headless
