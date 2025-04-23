@@ -26,7 +26,5 @@ if uploaded_file:
             st.text(text)
         else:
             summary = summarize_text(text, count)
-            st.subheader("📝 Extracted Text")
-            st.text(text)
             st.subheader("📌 Summary")
             st.success(summary)
