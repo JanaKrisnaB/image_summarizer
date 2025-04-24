@@ -25,7 +25,7 @@ if uploaded_file:
     if count < 30:
         st.warning("Text too short to summarize.")
     else:
-        summary,summary_tamil = summarize_text(text, count)
+        summary = summarize_text(text, count)
         st.subheader("📌 Summary")
         st.success(summary)
 
