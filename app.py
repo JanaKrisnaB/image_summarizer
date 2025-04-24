@@ -29,5 +29,5 @@ if uploaded_file:
         st.subheader("📌 Summary")
         st.success(summary)
 
-        st.subheader("📌 Summary in Tamil")
-        st.success(summary_tamil)
+        '''st.subheader("📌 Summary in Tamil")
+        st.success(summary_tamil)'''
