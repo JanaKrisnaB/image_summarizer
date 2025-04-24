@@ -28,11 +28,9 @@ if uploaded_file:
     if count < 30:
         st.warning("Text too short to summarize.")
     else:
-        summary = summarize_text(text, count)
+        summary,summary_tamil = summarize_text(text, count)
         st.subheader("📌 Summary")
         st.success(summary)
 
-        # Download summary
-        b64 = base64.b64encode(summary.encode()).decode()
-        download_link = f'<a href="data:file/txt;base64,{b64}" download="summary.txt">📥 Download Summary</a>'
-        st.markdown(download_link, unsafe_allow_html=True)
+        st.subheader("📌 Summary in Tamil")
+        st.success(summary_tamil)
