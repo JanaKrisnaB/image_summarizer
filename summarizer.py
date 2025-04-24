@@ -6,13 +6,13 @@ def load_summarizer():
     return pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 # Caching the translation model for Tamil
-@st.cache_resource
+'''@st.cache_resource
 def load_translator():
-    return pipeline("translation_en_to_ta", model="Helsinki-NLP/opus-mt-en-ta")
+    return pipeline("translation_en_to_ta", model="Helsinki-NLP/opus-mt-en-ta")'''
     
 # Initialize the summarizer and translator
 summarizer_pipeline = load_summarizer()
-translator_pipeline = load_translator()
+#translator_pipeline = load_translator()
 
 def summarize_text(text, count, max_length=None, min_length=None):
     '''Summarizes input text based on word count or custom length parameters.'''
@@ -36,6 +36,6 @@ def summarize_text(text, count, max_length=None, min_length=None):
 
     # Perform summarization
     summary = summarizer_pipeline(text, max_length=max_length, min_length=min_length, do_sample=False)[0]["summary_text"]
-    summary_tamil = translator_pipeline(summary)[0]['translation_text']
-    return summary,summary_tamil
+    #summary_tamil = translator_pipeline(summary)[0]['translation_text']
+    return summary #summary_tamil
 
