@@ -22,9 +22,6 @@ if uploaded_file:
     with st.spinner("Extracting and summarizing text..."):
         text, count = ocr_text(img_path)
 
-    st.markdown(f"**Extracted {count} characters**")
-    st.text_area("📝 Extracted Text", text, height=200)
-
     if count < 30:
         st.warning("Text too short to summarize.")
     else:
