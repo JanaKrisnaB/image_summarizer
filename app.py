@@ -28,6 +28,3 @@ if uploaded_file:
         summary = summarize_text(text, count)
         st.subheader("📌 Summary")
         st.success(summary)
-
-        '''st.subheader("📌 Summary in Tamil")
-        st.success(summary_tamil)'''
